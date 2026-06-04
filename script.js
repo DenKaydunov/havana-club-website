@@ -102,29 +102,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 const contactForm = document.getElementById('contactForm');
 
+// Вставьте URL вашего Apps Script Web App после развёртывания
+const APPS_SCRIPT_URL = 'ВСТАВИТЬ_URL_APPS_SCRIPT_СЮДА';
+
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Get form data
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData);
+        data.date = new Date().toLocaleString('ru-RU');
 
-        // Show success message
+        try {
+            await fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Apps Script требует no-cors из браузера
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+        } catch (err) {
+            console.error('Ошибка отправки заявки:', err);
+        }
+
         showNotification('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.', 'success');
-
-        // Reset form
         contactForm.reset();
-
-        // Log data (in production, send to server)
-        console.log('Form submission:', data);
-
-        // In production, you would send this to your server:
-        // fetch('/api/submit-form', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(data)
-        // });
     });
 }
 
@@ -497,3 +498,182 @@ console.log(`
 💻 Website crafted with passion
 📱 Нужна разработка? Напиши нам!
 `);
+// Lightbox for partner logos
+function openLightbox(img) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+});
+
+document.getElementById('lightbox-img')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+});
+
+// Drag to scroll gallery
+function initGalleryScroll(el) {
+    if (!el) return;
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    el.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - el.offsetLeft;
+        scrollLeft = el.scrollLeft;
+    });
+    el.addEventListener('mouseleave', () => { isDown = false; });
+    el.addEventListener('mouseup', () => { isDown = false; });
+    el.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - el.offsetLeft;
+        el.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
+    el.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        el.scrollLeft += e.deltaY * 2;
+    }, { passive: false });
+}
+
+document.querySelectorAll('.gallery-grid').forEach(initGalleryScroll);
+
+function switchTab(event, tabId) {
+    document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.gallery-pane').forEach(p => p.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+    document.getElementById(tabId).classList.add('active');
+}
+
+function scrollGallery(direction) {
+    const active = document.querySelector('.gallery-pane.active');
+    if (active) active.scrollBy({ left: direction * 300, behavior: 'smooth' });
+}
+
+// Hide broken gallery images
+document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.addEventListener('error', () => {
+        img.closest('.gallery-item').style.display = 'none';
+    });
+});
+
+// ========================
+// SCHEDULE CAROUSEL
+// ========================
+
+(function () {
+    const track = document.querySelector('.schedule-grid');
+    const wrap = document.querySelector('.schedule-track-wrap');
+    const prevBtn = document.querySelector('.schedule-prev');
+    const nextBtn = document.querySelector('.schedule-next');
+    if (!track || !wrap || !prevBtn || !nextBtn) return;
+
+    const cards = Array.from(track.children);
+    let current = 0;
+
+    function cardWidth() {
+        return cards[0].offsetWidth + parseInt(getComputedStyle(track).gap || 24);
+    }
+
+    function visibleCount() {
+        return Math.max(1, Math.round(wrap.offsetWidth / cardWidth()));
+    }
+
+    function maxIndex() {
+        return Math.max(0, cards.length - visibleCount());
+    }
+
+    function update() {
+        const offset = current * cardWidth();
+        track.style.transform = `translateX(-${offset}px)`;
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current >= maxIndex();
+    }
+
+    prevBtn.addEventListener('click', () => { if (current > 0) { current--; update(); } });
+    nextBtn.addEventListener('click', () => { if (current < maxIndex()) { current++; update(); } });
+
+    // Drag support (mouse + touch)
+    let startX = 0, dragActive = false, baseOffset = 0;
+
+    function getOffset() {
+        return current * cardWidth();
+    }
+
+    wrap.addEventListener('mousedown', e => {
+        if (e.button !== 0) return;
+        e.preventDefault();
+        dragActive = true;
+        startX = e.clientX;
+        baseOffset = getOffset();
+        track.style.transition = 'none';
+        wrap.classList.add('dragging');
+    });
+
+    document.addEventListener('mousemove', e => {
+        if (!dragActive) return;
+        const dx = e.clientX - startX;
+        track.style.transform = `translateX(${-(baseOffset - dx)}px)`;
+    });
+
+    document.addEventListener('mouseup', e => {
+        if (!dragActive) return;
+        dragActive = false;
+        wrap.classList.remove('dragging');
+        track.style.transition = '';
+        const dx = e.clientX - startX;
+        if (dx < -30 && current < maxIndex()) current++;
+        else if (dx > 30 && current > 0) current--;
+        update();
+    });
+
+    // Touch support
+    wrap.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        baseOffset = getOffset();
+        track.style.transition = 'none';
+    }, { passive: true });
+
+    wrap.addEventListener('touchmove', e => {
+        const dx = e.touches[0].clientX - startX;
+        track.style.transform = `translateX(${-(baseOffset - dx)}px)`;
+    }, { passive: true });
+
+    wrap.addEventListener('touchend', e => {
+        track.style.transition = '';
+        const dx = e.changedTouches[0].clientX - startX;
+        if (dx < -30 && current < maxIndex()) current++;
+        else if (dx > 30 && current > 0) current--;
+        update();
+    });
+
+    wrap.addEventListener('dragstart', e => e.preventDefault());
+
+    // Wheel scroll
+    wrap.addEventListener('wheel', e => {
+        e.preventDefault();
+        if (e.deltaX > 30 || e.deltaY > 30) {
+            if (current < maxIndex()) { current++; update(); }
+        } else if (e.deltaX < -30 || e.deltaY < -30) {
+            if (current > 0) { current--; update(); }
+        }
+    }, { passive: false });
+
+    window.addEventListener('resize', () => {
+        current = Math.min(current, maxIndex());
+        update();
+    });
+
+    update();
+})();
