@@ -670,6 +670,77 @@ ul {
    SCHEDULE SECTION
    ======================== */
 
+/* ── Directions Section ─────────────────────────────── */
+.directions-section {
+    padding: var(--section-padding);
+    background: var(--white);
+}
+
+.directions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.directions-column {
+    background: var(--light);
+    border-radius: 16px;
+    padding: 2rem 2rem 2.5rem;
+    border-top: 4px solid var(--primary);
+}
+
+.directions-column-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.directions-icon {
+    color: var(--primary);
+    font-size: 1.3rem;
+}
+
+.directions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.direction-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.7rem 1rem;
+    background: var(--white);
+    border-radius: 8px;
+    border-left: 3px solid var(--secondary);
+}
+
+.direction-name {
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 1rem;
+}
+
+.direction-detail {
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .directions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .schedule-section {
     padding: var(--section-padding);
     background: linear-gradient(180deg, #F3F4F6 0%, #F9FAFB 100%);
