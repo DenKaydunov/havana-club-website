@@ -113,6 +113,7 @@ ul {
     position: relative;
     top: 60px;
     margin-top: -60px;
+    flex-shrink: 0;
 }
 
 .nav-brand .logo:hover {
@@ -611,17 +612,16 @@ ul {
 }
 
 .pricing-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    display: inline-block;
     background: var(--gradient-primary);
     color: var(--white);
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 0.9rem;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
 }
 
 .pricing-title {
@@ -731,14 +731,113 @@ ul {
 }
 
 .direction-detail {
-    color: var(--text-light);
-    font-size: 0.85rem;
+    color: var(--gray);
+    font-size: 0.8rem;
+    font-style: italic;
 }
 
 @media (max-width: 768px) {
-    .directions-grid {
-        grid-template-columns: 1fr;
+    .schedule-carousel {
+        gap: 0;
     }
+
+    .schedule-nav {
+        display: none !important;
+    }
+
+    .schedule-track-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .schedule-day {
+        min-width: calc(100vw - 3rem);
+        max-width: calc(100vw - 3rem);
+    }
+}
+
+.directions-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.directions-item {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--light-gray);
+    background: var(--white);
+}
+
+.directions-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.2rem 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dark);
+    text-align: left;
+    transition: var(--transition);
+}
+
+.directions-toggle:hover {
+    background: rgba(230, 57, 70, 0.04);
+}
+
+.directions-toggle[aria-expanded="true"] {
+    border-bottom: 1px solid var(--light-gray);
+    color: var(--primary-color);
+}
+
+.directions-chevron {
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    color: var(--gray);
+}
+
+.directions-toggle[aria-expanded="true"] .directions-chevron {
+    transform: rotate(180deg);
+    color: var(--primary-color);
+}
+
+.directions-toggle .directions-icon {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.directions-item .directions-list {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.75rem 1.5rem 1rem;
+}
+
+.directions-item .directions-list.open {
+    display: flex;
+}
+
+.directions-item .direction-item {
+    border-left: none;
+    background: none;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--light-gray);
+    border-radius: 0;
+    gap: 0.5rem;
+}
+
+.directions-item .direction-item:last-child {
+    border-bottom: none;
 }
 
 .schedule-section {
@@ -1132,19 +1231,7 @@ ul {
 }
 
 .footer-dev {
-    padding-left: 1.5rem;
     position: relative;
-}
-
-.footer-dev::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 12px;
-    width: 1px;
-    background: rgba(255, 255, 255, 0.2);
 }
 
 .footer-dev:hover {
@@ -1243,10 +1330,18 @@ ul {
 
     .hero-cta {
         flex-direction: column;
+        align-items: center;
     }
 
     .hero-stats {
-        gap: 2rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    .hero-stats .stat:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
     }
 
     .benefits-grid {
@@ -1256,6 +1351,11 @@ ul {
     .schedule-item {
         grid-template-columns: auto 1fr;
         gap: 0.8rem;
+    }
+
+    .dance-name {
+        white-space: normal;
+        word-break: break-word;
     }
 
     .level {
@@ -1297,6 +1397,22 @@ ul {
     .section-header {
         margin-bottom: 2.5rem;
     }
+
+    .gallery-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .gallery-tabs {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .gallery-tab {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1305,15 +1421,18 @@ ul {
     }
 
     .nav-brand .logo {
-        height: 40px;
+        height: 60px;
+        width: 60px;
+        top: 30px;
+        margin-top: -30px;
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
     }
 
     .brand-name {
-        font-size: 1.6rem;
+        font-size: clamp(1.5rem, 7vw, 2rem);
     }
 
     .hero-subtitle {

@@ -4,6 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Havana Club - студия латинских танцев в Гомеле. Бачата, сальса, зук, кизомба, восточные танцы. Парные и соло группы.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://denkaydunov.github.io/havana-club-website/">
+    <meta property="og:title" content="Havana Club — студия латинских танцев в Гомеле">
+    <meta property="og:description" content="Бачата, сальса, бразильский зук, кизомба, аргентинское танго и восточные танцы. Занятия 7 дней в неделю для всех уровней.">
+    <meta property="og:image" content="https://denkaydunov.github.io/havana-club-website/logo white.png">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "DanceSchool",
+        "name": "Havana Club",
+        "description": "Студия латинских танцев в Гомеле. Бачата, сальса, бразильский зук, кизомба, аргентинское танго и восточные танцы.",
+        "url": "https://denkaydunov.github.io/havana-club-website/",
+        "telephone": "+375259421573",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "ул. Карповича, 45",
+            "addressLocality": "Гомель",
+            "addressCountry": "BY"
+        },
+        "openingHours": "Mo-Su 10:00-22:00",
+        "sameAs": [
+            "https://www.instagram.com/havana_dance_gomel/",
+            "https://www.tiktok.com/@havana_gomel",
+            "https://t.me/havana_dance_club"
+        ]
+    }
+    </script>
     <title>Havana Club - Студия танцев в Гомеле</title>
     <link rel="icon" type="image/svg+xml" href="logo white.svg">
     <link rel="stylesheet" href="styles.css">
@@ -23,7 +55,7 @@
                 <li><a href="#home">Главная</a></li>
                 <li><a href="#benefits">Преимущества</a></li>
                 <li><a href="#directions">Направления</a></li>
-                <li><a href="#schedule">Расписание</a></li>
+                <li><a href="schedule.html">Расписание</a></li>
                 <li><a href="#prices">Цены</a></li>
                 <li><a href="#gallery">Галерея</a></li>
                 <li><a href="#contact">Контакты</a></li>
@@ -83,7 +115,6 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Почему выбирают нас</h2>
-                <p class="section-subtitle">Лучшая студия латинских танцев в Гомеле</p>
             </div>
             <div class="benefits-grid">
                 <div class="benefit-card fade-in">
@@ -93,9 +124,15 @@
                         </svg>
                     </div>
                     <h3 class="benefit-title">Разнообразие направлений</h3>
-                    <p class="benefit-description">
-                        7 направлений латинских и восточных танцев: бачата (парная и женский стиль), сальса, бразильский зук, кизомба (парная и женский стиль), аргентинское танго, восточные танцы и соло латина (румба, джайв, ча-ча).
-                    </p>
+                    <ul class="benefit-description" style="padding-left:1.2rem;line-height:2">
+                        <li>Бачата (парная и женский стиль)</li>
+                        <li>Сальса</li>
+                        <li>Бразильский зук</li>
+                        <li>Кизомба (парная и женский стиль)</li>
+                        <li>Аргентинское танго</li>
+                        <li>Восточные танцы</li>
+                        <li>Соло латина (румба, джайв, ча-ча)</li>
+                    </ul>
                 </div>
 
                 <div class="benefit-card fade-in delay-1">
@@ -108,7 +145,7 @@
                     </div>
                     <h3 class="benefit-title">Профессиональные инструкторы</h3>
                     <p class="benefit-description">
-                        Опытные преподаватели с международными сертификатами. Индивидуальный подход к каждому ученику, независимо от уровня подготовки.
+                        Опытные преподаватели с международными сертификатами. У нас работают преподаватели с разными стилями и характерами — вы сможете выбрать того, с кем вам комфортнее всего. Индивидуальный подход к каждому ученику, независимо от уровня подготовки.
                     </p>
                 </div>
 
@@ -161,7 +198,7 @@
                     </div>
                     <h3 class="benefit-title">Удобное расположение</h3>
                     <p class="benefit-description">
-                        г. Гомель, ул. Карповича 45. Вход в серые ворота со стороны парковки. Просторные залы с профессиональным покрытием и кондиционерами.
+                        г. Гомель, ул. Карповича 45. Вход в серые ворота со стороны парковки. Просторные залы с большими зеркалами, профессиональным освещением, кондиционерами, горячей водой и удобными раздевалками.
                     </p>
                 </div>
             </div>
@@ -176,247 +213,49 @@
                 <h2 class="section-title">Направления</h2>
                 <p class="section-subtitle">Выберите свой стиль — сольный или парный</p>
             </div>
-            <div class="directions-grid">
-                <div class="directions-column fade-in">
-                    <h3 class="directions-column-title">
+            <div class="directions-accordion">
+                <div class="directions-item fade-in">
+                    <button class="directions-toggle" aria-expanded="false">
                         <span class="directions-icon">♀</span>
-                        Сольные танцы для девушек
-                    </h3>
+                        <span>Сольные танцы для девушек</span>
+                        <svg class="directions-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
                     <ul class="directions-list">
-                        <li class="direction-item">
-                            <span class="direction-name">Бачата Женский Стиль</span>
-                        </li>
-                        <li class="direction-item">
-                            <span class="direction-name">Кизомба Женский Стиль</span>
-                        </li>
-                        <li class="direction-item">
-                            <span class="direction-name">Восточные танцы</span>
-                        </li>
-                        <li class="direction-item">
-                            <span class="direction-name">Соло Латина</span>
-                            <span class="direction-detail">румба, джайв, ча-ча</span>
-                        </li>
+                        <li class="direction-item"><span class="direction-name">Бачата Женский Стиль</span></li>
+                        <li class="direction-item"><span class="direction-name">Кизомба Женский Стиль</span></li>
+                        <li class="direction-item"><span class="direction-name">Восточные танцы</span></li>
+                        <li class="direction-item"><span class="direction-name">Соло Латина</span><br><span class="direction-detail">румба, джайв, ча-ча</span></li>
                     </ul>
                 </div>
-                <div class="directions-column fade-in delay-1">
-                    <h3 class="directions-column-title">
+                <div class="directions-item fade-in delay-1">
+                    <button class="directions-toggle" aria-expanded="false">
                         <span class="directions-icon">♂</span>
-                        Сольные танцы для парней
-                    </h3>
+                        <span>Сольные танцы для парней</span>
+                        <svg class="directions-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
                     <ul class="directions-list">
-                        <li class="direction-item">
-                            <span class="direction-name">Соло Бачата</span>
-                        </li>
-                        <li class="direction-item">
-                            <span class="direction-name">Сальса</span>
-                        </li>
+                        <li class="direction-item"><span class="direction-name">Соло Бачата</span></li>
+                        <li class="direction-item"><span class="direction-name">Сальса</span></li>
                     </ul>
                 </div>
-                <div class="directions-column fade-in delay-2">
-                    <h3 class="directions-column-title">
+                <div class="directions-item fade-in delay-2">
+                    <button class="directions-toggle" aria-expanded="false">
                         <span class="directions-icon">♥</span>
-                        Парные танцы
-                    </h3>
+                        <span>Парные танцы</span>
+                        <svg class="directions-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
                     <ul class="directions-list">
-                        <li class="direction-item">
-                            <span class="direction-name">Бачата</span>
-                        </li>
-                        <li class="direction-item">
-                            <span class="direction-name">Кизомба</span>
-                        </li>
-                        <li class="direction-item">
-                            <span class="direction-name">Бразильский Зук</span>
-                        </li>
-                        <li class="direction-item">
-                            <span class="direction-name">Аргентинское Танго</span>
-                        </li>
-                        <li class="direction-item">
-                            <span class="direction-name">Сальса</span>
-                        </li>
+                        <li class="direction-item"><span class="direction-name">Бачата</span></li>
+                        <li class="direction-item"><span class="direction-name">Кизомба</span></li>
+                        <li class="direction-item"><span class="direction-name">Бразильский Зук</span></li>
+                        <li class="direction-item"><span class="direction-name">Аргентинское Танго</span></li>
+                        <li class="direction-item"><span class="direction-name">Сальса</span></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Schedule Section -->
-    <section id="schedule" class="schedule-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Расписание занятий</h2>
-            </div>
-            <div class="schedule-carousel">
-                <button class="schedule-nav schedule-prev" aria-label="Назад">&#8249;</button>
-                <div class="schedule-track-wrap">
-                <div class="schedule-grid">
-                <div class="schedule-day">
-                    <h3 class="day-title">Понедельник</h3>
-                    <div class="schedule-item">
-                        <span class="time">18:00</span>
-                        <span class="dance-name">Бачата Женский стиль Младшие</span>
-                        <span class="level">от 1 месяца</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">19:00</span>
-                        <span class="dance-name">Бачата Парная Начинающие</span>
-                        <span class="level">с нуля</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">20:30</span>
-                        <span class="dance-name">Урбан Киз</span>
-                        <span class="level">от 1 месяца</span>
-                    </div>
-                </div>
-
-                <div class="schedule-day">
-                    <h3 class="day-title">Вторник</h3>
-                    <div class="schedule-item">
-                        <span class="time">18:00</span>
-                        <span class="dance-name">Восточные танцы</span>
-                        <span class="level">от 6-ти месяцев</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">19:00</span>
-                        <span class="dance-name">Восточные танцы</span>
-                        <span class="level">от 6-ти месяцев</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">20:00</span>
-                        <span class="dance-name">Бачата Соло</span>
-                        <span class="level">от 3-х месяцев</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">21:00</span>
-                        <span class="dance-name">Сальса</span>
-                        <span class="level">от 3-х месяцев</span>
-                    </div>
-                </div>
-
-                <div class="schedule-day">
-                    <h3 class="day-title">Среда</h3>
-                    <div class="schedule-item highlight">
-                        <span class="time">18:00</span>
-                        <span class="dance-name">Бачата Женский стиль Новички</span>
-                        <span class="level">🔥 Новый набор</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">19:30</span>
-                        <span class="dance-name">Кизомба Женский стиль</span>
-                        <span class="level">от 6-ти месяцев</span>
-                    </div>
-                    <div class="schedule-item highlight">
-                        <span class="time">20:30</span>
-                        <span class="dance-name">Аргентинское Танго</span>
-                        <span class="level">🔥 Новый набор</span>
-                    </div>
-                </div>
-
-                <div class="schedule-day">
-                    <h3 class="day-title">Четверг</h3>
-                    <div class="schedule-item">
-                        <span class="time">18:30</span>
-                        <span class="dance-name">Бачата Парная Начинающие</span>
-                        <span class="level">с нуля</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">20:00</span>
-                        <span class="dance-name">Бачата Соло</span>
-                        <span class="level">от 3-х месяцев</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">21:00</span>
-                        <span class="dance-name">Сальса</span>
-                        <span class="level">от 3-х месяцев</span>
-                    </div>
-                </div>
-
-                <div class="schedule-day">
-                    <h3 class="day-title">Пятница</h3>
-                    <div class="schedule-item">
-                        <span class="time">18:00</span>
-                        <span class="dance-name">Бачата Женский стиль Младшие</span>
-                        <span class="level">от 1 месяца</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">19:00</span>
-                        <span class="dance-name">Бачата Парная Старшая</span>
-                        <span class="level">от 6-х месяцев</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">20:00</span>
-                        <span class="dance-name">Бачата Парная Старшая</span>
-                        <span class="level">Разный</span>
-                    </div>
-                    <div class="schedule-item party">
-                        <span class="time">21:00-00:00</span>
-                        <span class="dance-name">ВЕЧЕРИНКА</span>
-                        <span class="level">Sensual Party</span>
-                    </div>
-                </div>
-
-                <div class="schedule-day">
-                    <h3 class="day-title">Суббота</h3>
-                    <div class="schedule-item highlight">
-                        <span class="time">14:00</span>
-                        <span class="dance-name">Восточные танцы Младшие</span>
-                        <span class="level">🔥 Новый набор</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">15:00</span>
-                        <span class="dance-name">Восточные танцы</span>
-                        <span class="level">от 3-х месяцев</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">16:00</span>
-                        <span class="dance-name">Восточные танцы</span>
-                        <span class="level">Разный</span>
-                    </div>
-                    <div class="schedule-item highlight">
-                        <span class="time">17:30</span>
-                        <span class="dance-name">Бразильский Зук Новички</span>
-                        <span class="level">🔥 Новый набор</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">18:00</span>
-                        <span class="dance-name">Зук Практика</span>
-                        <span class="level">Разный</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">19:30</span>
-                        <span class="dance-name">Бразильский Зук Продолжающие</span>
-                        <span class="level">—</span>
-                    </div>
-                </div>
-
-                <div class="schedule-day">
-                    <h3 class="day-title">Воскресенье</h3>
-                    <div class="schedule-item">
-                        <span class="time">14:00</span>
-                        <span class="dance-name">Бачата Парная Младшие</span>
-                        <span class="level">от 3-х месяцев</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">16:00</span>
-                        <span class="dance-name">Практика по Бачате</span>
-                        <span class="level">Разный</span>
-                    </div>
-                    <div class="schedule-item highlight">
-                        <span class="time">18:00</span>
-                        <span class="dance-name">Аргентинское Танго</span>
-                        <span class="level">🔥 Новый набор</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">19:30</span>
-                        <span class="dance-name">Практика по Аргентинскому Танго</span>
-                        <span class="level">Разный</span>
-                    </div>
-                </div>
-                </div>
-                </div><!-- /.schedule-track-wrap -->
-                <button class="schedule-nav schedule-next" aria-label="Вперёд">&#8250;</button>
-            </div><!-- /.schedule-carousel -->
-        </div>
-    </section>
     <section id="prices" class="pricing">
         <div class="container">
             <div class="section-header">
@@ -773,19 +612,6 @@
                 </div>
 
                 <div class="footer-col">
-                    <h4 class="footer-heading">Направления</h4>
-                    <ul class="footer-links">
-                        <li><a href="#prices">Бачата (Парная и Женский стиль)</a></li>
-                        <li><a href="#prices">Сальса</a></li>
-                        <li><a href="#prices">Бразильский Зук</a></li>
-                        <li><a href="#prices">Кизомба (Парная и Женский стиль)</a></li>
-                        <li><a href="#prices">Восточные танцы</a></li>
-                        <li><a href="#prices">Аргентинское Танго</a></li>
-                        <li><a href="#prices">Соло Латина (Румба, Джайв, Ча-ча)</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
                     <h4 class="footer-heading">Контакты</h4>
                     <ul class="footer-contacts">
                         <li>
@@ -794,6 +620,12 @@
                                 <circle cx="12" cy="10" r="3"/>
                             </svg>
                             <span>г. Гомель, ул. Карповича, 45</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold-color)">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+                            </svg>
+                            <a href="https://yandex.by/maps/-/CPXdeKIJ" target="_blank" rel="noopener">Открыть на карте</a>
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

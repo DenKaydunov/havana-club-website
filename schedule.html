@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Расписание занятий Havana Club — студия латинских танцев в Гомеле.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://denkaydunov.github.io/havana-club-website/schedule.html">
+    <meta property="og:title" content="Расписание занятий — Havana Club, Гомель">
+    <meta property="og:description" content="Расписание групп по бачате, сальсе, зуку, кизомбе, аргентинскому танго и восточным танцам. Занятия 7 дней в неделю.">
+    <meta property="og:image" content="https://denkaydunov.github.io/havana-club-website/logo white.png">
+    <meta property="og:locale" content="ru_RU">
+    <title>Расписание — Havana Club</title>
+    <link rel="icon" type="image/svg+xml" href="logo white.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .schedule-page {
+            padding: 7rem 0 4rem;
+            background: linear-gradient(180deg, #F3F4F6 0%, #F9FAFB 100%);
+            min-height: 100vh;
+        }
+
+        .schedule-page .section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .schedule-full {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .schedule-full .schedule-day {
+            min-width: unset;
+            max-width: unset;
+            width: 100%;
+        }
+
+        .schedule-full .day-title {
+            font-size: 1.3rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-block {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2.5rem;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .cta-block p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="logo white.png" alt="Havana Club" class="logo">
+                <h2>Havana Club</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Главная</a></li>
+                <li><a href="index.html#benefits">Преимущества</a></li>
+                <li><a href="index.html#directions">Направления</a></li>
+                <li><a href="schedule.html" style="-webkit-text-fill-color: var(--secondary-color); color: var(--secondary-color)">Расписание</a></li>
+                <li><a href="index.html#prices">Цены</a></li>
+                <li><a href="index.html#gallery">Галерея</a></li>
+                <li><a href="index.html#contact">Контакты</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="schedule-page">
+        <div class="container">
+            <a href="index.html" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="15 18 9 12 15 6"/></svg>
+                На главную
+            </a>
+            <div class="section-header">
+                <h1 class="section-title">Расписание занятий</h1>
+            </div>
+
+            <div class="schedule-full">
+                <div class="schedule-day">
+                    <h3 class="day-title">Понедельник</h3>
+                    <div class="schedule-item">
+                        <span class="time">18:00</span>
+                        <span class="dance-name">Бачата Женский стиль Младшие</span>
+                        <span class="level">от 1 месяца</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">19:00</span>
+                        <span class="dance-name">Бачата Парная Начинающие</span>
+                        <span class="level">с нуля</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">20:30</span>
+                        <span class="dance-name">Урбан Киз</span>
+                        <span class="level">от 1 месяца</span>
+                    </div>
+                </div>
+
+                <div class="schedule-day">
+                    <h3 class="day-title">Вторник</h3>
+                    <div class="schedule-item">
+                        <span class="time">18:00</span>
+                        <span class="dance-name">Восточные танцы</span>
+                        <span class="level">от 6-ти месяцев</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">19:00</span>
+                        <span class="dance-name">Восточные танцы</span>
+                        <span class="level">от 6-ти месяцев</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">20:00</span>
+                        <span class="dance-name">Бачата Соло</span>
+                        <span class="level">от 3-х месяцев</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">21:00</span>
+                        <span class="dance-name">Сальса</span>
+                        <span class="level">от 3-х месяцев</span>
+                    </div>
+                </div>
+
+                <div class="schedule-day">
+                    <h3 class="day-title">Среда</h3>
+                    <div class="schedule-item highlight">
+                        <span class="time">18:00</span>
+                        <span class="dance-name">Бачата Женский стиль Новички</span>
+                        <span class="level">🔥 Новый набор</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">19:30</span>
+                        <span class="dance-name">Кизомба Женский стиль</span>
+                        <span class="level">от 6-ти месяцев</span>
+                    </div>
+                    <div class="schedule-item highlight">
+                        <span class="time">20:30</span>
+                        <span class="dance-name">Аргентинское Танго</span>
+                        <span class="level">🔥 Новый набор</span>
+                    </div>
+                </div>
+
+                <div class="schedule-day">
+                    <h3 class="day-title">Четверг</h3>
+                    <div class="schedule-item">
+                        <span class="time">18:30</span>
+                        <span class="dance-name">Бачата Парная Начинающие</span>
+                        <span class="level">с нуля</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">20:00</span>
+                        <span class="dance-name">Бачата Соло</span>
+                        <span class="level">от 3-х месяцев</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">21:00</span>
+                        <span class="dance-name">Сальса</span>
+                        <span class="level">от 3-х месяцев</span>
+                    </div>
+                </div>
+
+                <div class="schedule-day">
+                    <h3 class="day-title">Пятница</h3>
+                    <div class="schedule-item">
+                        <span class="time">18:00</span>
+                        <span class="dance-name">Бачата Женский стиль Младшие</span>
+                        <span class="level">от 1 месяца</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">19:00</span>
+                        <span class="dance-name">Бачата Парная Старшая</span>
+                        <span class="level">от 6-х месяцев</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">20:00</span>
+                        <span class="dance-name">Бачата Парная Старшая</span>
+                        <span class="level">Разный</span>
+                    </div>
+                    <div class="schedule-item party">
+                        <span class="time">21:00–00:00</span>
+                        <span class="dance-name">ВЕЧЕРИНКА</span>
+                        <span class="level">Sensual Party</span>
+                    </div>
+                </div>
+
+                <div class="schedule-day">
+                    <h3 class="day-title">Суббота</h3>
+                    <div class="schedule-item highlight">
+                        <span class="time">14:00</span>
+                        <span class="dance-name">Восточные танцы Младшие</span>
+                        <span class="level">🔥 Новый набор</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">15:00</span>
+                        <span class="dance-name">Восточные танцы</span>
+                        <span class="level">от 3-х месяцев</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">16:00</span>
+                        <span class="dance-name">Восточные танцы</span>
+                        <span class="level">Разный</span>
+                    </div>
+                    <div class="schedule-item highlight">
+                        <span class="time">17:30</span>
+                        <span class="dance-name">Бразильский Зук Новички</span>
+                        <span class="level">🔥 Новый набор</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">18:00</span>
+                        <span class="dance-name">Зук Практика</span>
+                        <span class="level">Разный</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">19:30</span>
+                        <span class="dance-name">Бразильский Зук Продолжающие</span>
+                        <span class="level">—</span>
+                    </div>
+                </div>
+
+                <div class="schedule-day">
+                    <h3 class="day-title">Воскресенье</h3>
+                    <div class="schedule-item">
+                        <span class="time">14:00</span>
+                        <span class="dance-name">Бачата Парная Младшие</span>
+                        <span class="level">от 3-х месяцев</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">16:00</span>
+                        <span class="dance-name">Практика по Бачате</span>
+                        <span class="level">Разный</span>
+                    </div>
+                    <div class="schedule-item highlight">
+                        <span class="time">18:00</span>
+                        <span class="dance-name">Аргентинское Танго</span>
+                        <span class="level">🔥 Новый набор</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">19:30</span>
+                        <span class="dance-name">Практика по Аргентинскому Танго</span>
+                        <span class="level">Разный</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-block">
+                <p>Хотите записаться на занятие?</p>
+                <a href="https://t.me/havana_dance_club_bot" target="_blank" rel="noopener" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="vertical-align:middle;margin-right:8px"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    Записаться через Telegram
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

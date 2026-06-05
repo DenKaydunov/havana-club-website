@@ -2,6 +2,16 @@
 // NAVIGATION FUNCTIONALITY
 // ========================
 
+// Directions accordion
+document.querySelectorAll('.directions-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        const list = btn.nextElementSibling;
+        btn.setAttribute('aria-expanded', !isOpen);
+        list.classList.toggle('open', !isOpen);
+    });
+});
+
 // Mobile menu toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
