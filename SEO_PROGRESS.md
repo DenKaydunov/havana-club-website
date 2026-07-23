@@ -28,7 +28,15 @@
 
 ## Внешние действия (вручную)
 
+**Google Search Console:** https://search.google.com/search-console
+_(войти через Google аккаунт → Add property → URL prefix → вставить URL сайта)_
+
 - [x] **Google Search Console** — верификационный файл добавлен и запушен
 - [ ] **Google Search Console** — нажать VERIFY и добавить sitemap (`sitemap.xml`)
-- [ ] **Яндекс Вебмастер** — добавить сайт и подтвердить владение на https://webmaster.yandex.ru
+
+**Яндекс Вебмастер:** https://webmaster.yandex.ru
+_(войти через Яндекс аккаунт → Добавить сайт → вставить URL)_
+
+- [x] **Яндекс Вебмастер** — верификационный файл `yandex_50e4fcaa1b4a0a50.html` добавлен и запушен
+- [ ] **Яндекс Вебмастер** — нажать «Проверить» на https://webmaster.yandex.ru
 - [ ] **Яндекс Вебмастер** — добавить sitemap после верификации
